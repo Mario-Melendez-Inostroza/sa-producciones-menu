@@ -41,9 +41,9 @@ function Header({ onAdminClick }: { onAdminClick: () => void }) {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         <a href="#inicio" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
           <LogoSA size={42} />
-          <div className="hidden sm:block">
-            <div className="font-display font-800 text-dark text-[15px] leading-tight tracking-tight">S&A Producciones</div>
-            <div className="text-muted text-[10px] font-500 tracking-widest uppercase">La Florida · Santiago</div>
+          <div className="block">
+            <div className="font-display font-800 text-dark text-[13px] sm:text-[15px] leading-tight tracking-tight">S&A Producciones</div>
+            <div className="text-muted text-[9px] sm:text-[10px] font-500 tracking-widest uppercase">La Florida · Santiago</div>
           </div>
         </a>
 
@@ -128,20 +128,20 @@ function AvisoBanner() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden" style={{ minHeight: "88dvh" }}>
+    <section id="inicio" className="relative overflow-hidden min-h-[58dvh] sm:min-h-[70dvh] lg:min-h-[88dvh]">
       {/* Imagen de fondo */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
           alt="Cazuela de pollo chilena con ensalada a la chilena y pebre"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[62%_50%] sm:object-center"
         />
         {/* Gradiente: muy oscuro a la izquierda para legibilidad del texto, se abre hacia la derecha para mostrar los platos */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(28,24,20,0.88) 0%, rgba(28,24,20,0.65) 45%, rgba(28,24,20,0.25) 70%, rgba(28,24,20,0.10) 100%)" }} />
       </div>
 
       {/* Contenido */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col justify-center" style={{ minHeight: "88dvh" }}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col justify-center min-h-[58dvh] sm:min-h-[70dvh] lg:min-h-[88dvh]">
         <div className="max-w-lg py-20">
           <div className="inline-flex items-center gap-2 bg-primary/90 text-white text-xs font-display font-700 px-3 py-1.5 rounded-full mb-5 tracking-wider uppercase">
             <span>🍽️</span> Colaciones caseras · La Florida
