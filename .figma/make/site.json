@@ -1,7 +1,11 @@
 {
-  "description": "Streamline daily menu updates and client communication by integrating Instagram feeds, enhancing engagement and efficiency for restaurants.",
+  "title": "S&A Producciones | Colaciones y Banquetería en La Florida",
+  "description": "Colaciones caseras todos los días y servicios de banquetería para matrimonios, eventos y empresas en La Florida, Santiago. Menú del día actualizado y contacto directo por WhatsApp.",
   "robots": {
     "index": false
+  },
+  "openGraph": {
+    "image": "https://sa-producciones-menu.vercel.app/og-image.jpg"
   },
   "accessibility": {
     "addBypassLinks": false,
