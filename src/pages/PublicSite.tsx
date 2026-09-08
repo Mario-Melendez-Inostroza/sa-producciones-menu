@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useApp } from "../context/AppContext";
 import type { MenuItem } from "../context/AppContext";
 import heroImg from "@/imports/hero_almuerxo.png";
+import { SEASONAL_DECOR_ENABLED, ChileFlag, BuntingStrip, SeasonalDivider } from "@/components/SeasonalDecor";
 
 const WA_NUMBER = "56912345678";
 const WA_LINK = `https://wa.me/${WA_NUMBER}`;
@@ -95,6 +96,7 @@ function AvisoBanner() {
       <div className="bg-[#ECFDF5] border-b border-[#D1FAE5] px-4 py-2.5">
         <div className="max-w-6xl mx-auto flex items-center gap-2 text-sm">
           <span className="text-[#059669]">✓</span>
+          {SEASONAL_DECOR_ENABLED && <ChileFlag size={13} className="shrink-0" />}
           <span className="font-display font-600 text-[#065F46] text-sm">{aviso.message}</span>
         </div>
       </div>
@@ -106,7 +108,10 @@ function AvisoBanner() {
         <div className="max-w-6xl mx-auto flex items-start gap-3">
           <span className="text-lg mt-0.5">⚠️</span>
           <div>
-            <div className="font-display font-800 text-warning text-[13px] uppercase tracking-wider">{aviso.title}</div>
+            <div className="font-display font-800 text-warning text-[13px] uppercase tracking-wider flex items-center gap-1.5">
+              {SEASONAL_DECOR_ENABLED && <ChileFlag size={13} className="shrink-0" />}
+              {aviso.title}
+            </div>
             <div className="text-dark text-sm mt-0.5">{aviso.message}</div>
           </div>
         </div>
@@ -118,7 +123,10 @@ function AvisoBanner() {
       <div className="max-w-6xl mx-auto flex items-start gap-3">
         <span className="text-xl mt-0.5">🔒</span>
         <div>
-          <div className="font-display font-900 text-white text-[14px] uppercase tracking-wider">HOY ESTAREMOS CERRADOS</div>
+          <div className="font-display font-900 text-white text-[14px] uppercase tracking-wider flex items-center gap-1.5">
+            {SEASONAL_DECOR_ENABLED && <ChileFlag size={13} className="shrink-0" />}
+            HOY ESTAREMOS CERRADOS
+          </div>
           <div className="text-white/90 text-sm mt-0.5">{aviso.message}</div>
         </div>
       </div>
@@ -139,6 +147,14 @@ function Hero() {
         {/* Gradiente: muy oscuro a la izquierda para legibilidad del texto, se abre hacia la derecha para mostrar los platos */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(28,24,20,0.88) 0%, rgba(28,24,20,0.65) 45%, rgba(28,24,20,0.25) 70%, rgba(28,24,20,0.10) 100%)" }} />
       </div>
+
+      {/* Decoración Fiestas Patrias: guirnalda muy sutil en el borde superior, no tapa la foto ni el texto */}
+      {SEASONAL_DECOR_ENABLED && (
+        <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none text-white/90">
+          <BuntingStrip count={7} flagWidth={15} flagHeight={16} className="sm:hidden" />
+          <BuntingStrip count={16} flagWidth={16} flagHeight={18} className="hidden sm:block" />
+        </div>
+      )}
 
       {/* Contenido */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col justify-center min-h-[58dvh] sm:min-h-[70dvh] lg:min-h-[88dvh]">
@@ -213,6 +229,9 @@ function MenuDelDia() {
     <section id="menu" className="bg-cream py-16 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
+          {SEASONAL_DECOR_ENABLED && (
+            <BuntingStrip count={5} flagWidth={13} flagHeight={15} className="mx-auto max-w-[160px] mb-2 text-primary/60" />
+          )}
           <div className="inline-flex items-center gap-2 text-primary font-display font-700 text-xs uppercase tracking-widest mb-3">
             <div className="w-8 h-px bg-primary" />
             Menú del día
@@ -330,6 +349,7 @@ function Banqueteria() {
           <div className="inline-flex items-center gap-2 text-rose font-display font-700 text-xs uppercase tracking-widest mb-3">
             <div className="w-8 h-px bg-rose" />
             Banquetería
+            {SEASONAL_DECOR_ENABLED && <ChileFlag size={13} />}
             <div className="w-8 h-px bg-rose" />
           </div>
           <h2 className="font-display font-900 text-dark text-3xl sm:text-4xl tracking-tight max-w-lg mx-auto leading-tight">
@@ -513,8 +533,10 @@ export default function PublicSite() {
       <main className="flex-1">
         <Hero />
         <MenuDelDia />
+        {SEASONAL_DECOR_ENABLED && <SeasonalDivider />}
         <Banqueteria />
         <Galeria />
+        {SEASONAL_DECOR_ENABLED && <SeasonalDivider />}
         <Contacto />
       </main>
       <Footer onAdminClick={goAdmin} />
