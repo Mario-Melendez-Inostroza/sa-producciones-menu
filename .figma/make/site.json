@@ -1,0 +1,10 @@
+{
+  "description": "Streamline daily menu updates and client communication by integrating Instagram feeds, enhancing engagement and efficiency for restaurants.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
